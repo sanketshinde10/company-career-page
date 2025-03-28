@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-3">{{ job.title }}</h2>
+    
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Posted On:</strong> {{ job.posted_on|date:"F d, Y" }}</p>
+    
+    <h4 class="mt-3">Job Description</h4>
+    <p>{{ job.description }}</p>
+
+    <h4 class="mt-3">Requirements</h4>
+    <p>{{ job.requirements }}</p>
+
+    <!-- Apply Now Button -->
+    <a href="{% url 'apply_for_job' job.id %}" class="btn btn-success mt-3">Apply Now</a>
+
+    <!-- Back to Job List -->
+    <a href="{% url 'job_list' %}" class="btn btn-secondary mt-3">Back to Jobs</a>
+</div>
+{% endblock %}
