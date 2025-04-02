@@ -22,7 +22,7 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('jobs/', include('jobs.urls')),  # Include jobs app URLs
+    path('', include('jobs.urls')),  # Include jobs app URLs
 ]
 
 if settings.DEBUG:
