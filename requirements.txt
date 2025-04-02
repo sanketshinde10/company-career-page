@@ -2,8 +2,5 @@ asgiref==3.8.1
 Django==5.1.7
 sqlparse==0.5.3
 tzdata==2025.2
-<<<<<<< HEAD
 gunicorn 
-=======
 python-dotenv
->>>>>>> 3080831420847d6901dba2a0302e8b6487f26f6f
