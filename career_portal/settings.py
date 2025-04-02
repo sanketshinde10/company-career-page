@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     "company-career-page.onrender.com",
     "127.0.0.1",
     "localhost",
+    "https://company-career-page.onrender.com"
     ]
 
 
@@ -54,8 +55,9 @@ import os
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'jobs', 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
