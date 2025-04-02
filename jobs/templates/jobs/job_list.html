@@ -4,6 +4,14 @@
 <div class="container mt-4">
     <h2 class="text-center mb-4">Current Job Openings</h2>
 
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'job_list' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search jobs..." value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+
     <div class="row">
         {% for job in jobs %}
             <div class="col-md-6">
@@ -19,7 +27,7 @@
             </div>
         {% empty %}
             <div class="col-12 text-center">
-                <p class="text-danger fw-bold">No job openings available at the moment.</p>
+                <p class="text-danger fw-bold">No job openings available matching your search.</p>
             </div>
         {% endfor %}
     </div>

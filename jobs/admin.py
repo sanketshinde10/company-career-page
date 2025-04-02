@@ -9,18 +9,24 @@ class JobAdmin(admin.ModelAdmin):
 
 @admin.register(JobApplication)
 class JobApplicationAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "job", "status", "applied_on", "view_resume")  # ✅ Added view_resume
+    list_display = ("name", "email", "job", "status", "applied_on", "view_resume")  # ✅ View Resume Link
     list_filter = ("status", "job")
     search_fields = ("name", "email", "job__title")
     
     actions = ["approve_application", "reject_application"]
 
     def approve_application(self, request, queryset):
-        queryset.update(status="Approved")
+        """✅ Approve applications and send email"""
+        for application in queryset:
+            application.status = "Approved"
+            application.save()  # ✅ This will trigger the `save()` method in models.py, sending an email
     approve_application.short_description = "Approve selected applications"
 
     def reject_application(self, request, queryset):
-        queryset.update(status="Rejected")
+        """✅ Reject applications and send email"""
+        for application in queryset:
+            application.status = "Rejected"
+            application.save()  # ✅ This will trigger the `save()` method in models.py, sending an email
     reject_application.short_description = "Reject selected applications"
 
     # ✅ Function to show resume download link
